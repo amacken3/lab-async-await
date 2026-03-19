@@ -1,9 +1,13 @@
 // Write your code here!
 
 async function getPosts() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const posts = await response.json();
-    displayPosts(posts);
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const posts = await response.json();
+        displayPosts(posts);
+    } catch(error) {
+        console.error(error);
+    }
 }
 
 function displayPosts(posts) {
